@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precise Age Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #74ebd5 0%, #9fa8da 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666666;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333333;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="date"]:focus {
+            border-color: #74ebd5;
+        }
+
+        button {
+            width: 100%;
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2d3748;
+        }
+
+        .result-container {
+            margin-top: 25px;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 20px;
+            display: none;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .result-box {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4a5568;
+            display: block;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .error-message {
+            color: #e53e3e;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-card">
+        <h1>Age Calculator</h1>
+        
+        <div class="input-group">
+            <label for="birthdate">Select your Date of Birth:</label>
+            <input type="date" id="birthdate" required>
+        </div>
+
+        <button onclick="calculateAge()">Calculate Age</button>
+        
+        <div id="error" class="error-message"></div>
+
+        <div id="results" class="result-container">
+            <div class="result-grid">
+                <div class="result-box">
+                    <span id="years" class="result-value">-</span>
+                    <div class="result-label">Years</div>
+                </div>
+                <div class="result-box">
+                    <span id="months" class="result-value">-</span>
+                    <div class="result-label">Months</div>
+                </div>
+                <div class="result-box">
+                    <span id="days" class="result-value">-</span>
+                    <div class="result-label">Days</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Restrict picker from selecting future dates
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('birthdate').setAttribute('max', today);
+
+        function calculateAge() {
+            const birthdateInput = document.getElementById('birthdate').value;
+            const errorDiv = document.getElementById('error');
+            const resultsDiv = document.getElementById('results');
+
+            if (!birthdateInput) {
+                showError("Please select a valid date.");
+                return;
+            }
+
+            const birthDate = new Date(birthdateInput);
+            const currentDate = new Date();
+
+            if (birthDate > currentDate) {
+                showError("Birthdate cannot be in the future.");
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+
+            let years = currentDate.getFullYear() - birthDate.getFullYear();
+            let months = currentDate.getMonth() - birthDate.getMonth();
+            let days = currentDate.getDate() - birthDate.getDate();
+
+            // Adjust for negative days
+            if (days < 0) {
+                months--;
+                // Get total days in the previous month
+                const previousMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
+                days += previousMonth.getDate();
+            }
+
+            // Adjust for negative months
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Display results
+            document.getElementById('years').innerText = years;
+            document.getElementById('months').innerText = months;
+            document.getElementById('days').innerText = days;
+            
+            resultsDiv.style.display = 'block';
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error');
+            const resultsDiv = document.getElementById('results');
+            errorDiv.innerText = message;
+            errorDiv.style.display = 'block';
+            resultsDiv.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
