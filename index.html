@@ -12,12 +12,58 @@
 <meta name="description" 
 content="Free online Age Calculator. Calculate your exact age in years, months and days.">
 
-<style>
+<style> /* Calculator Cards */
+
+.calculator-section {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.calculator-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.calculator-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: transform 0.2s;
+}
+
+.calculator-card:hover {
+    transform: translateY(-4px);
+}
+
+.calculator-card .icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.calculator-card h3 {
+    margin: 8px 0;
+}
+
+.calculator-card p {
+    color: #666;
+    font-size: 14px;
+}
 *{
     box-sizing:border-box;
 }
 
-body{
+body{ 
     margin:0;
     font-family:Arial,sans-serif;
     background:linear-gradient(135deg,#667eea,#764ba2);
@@ -382,6 +428,44 @@ function resetCalculator(){
 }
 
 </script>
+<section class="calculator-section">
 
+    <h2>🧮 Free Online Calculators</h2>
+
+    <div class="calculator-grid">
+
+        <a href="index.html" class="calculator-card">
+            <div class="icon">🎂</div>
+            <h3>Age Calculator</h3>
+            <p>Calculate your exact age in years, months and days.</p>
+        </a>
+
+        <a href="percentage.html" class="calculator-card">
+            <div class="icon">📊</div>
+            <h3>Percentage Calculator</h3>
+            <p>Calculate percentages, increase and decrease.</p>
+        </a>
+
+        <a href="bmi.html" class="calculator-card">
+            <div class="icon">⚖️</div>
+            <h3>BMI Calculator</h3>
+            <p>Calculate your Body Mass Index easily.</p>
+        </a>
+
+        <a href="date.html" class="calculator-card">
+            <div class="icon">📅</div>
+            <h3>Date Calculator</h3>
+            <p>Calculate date difference and add or subtract days.</p>
+        </a>
+
+        <a href="emi.html" class="calculator-card">
+            <div class="icon">💰</div>
+            <h3>EMI Calculator</h3>
+            <p>Calculate monthly EMI, interest and total payment.</p>
+        </a>
+
+    </div>
+
+</section>
 </body>
 </html>
