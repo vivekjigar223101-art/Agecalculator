@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator - Calculate Your Body Mass Index</title>
+
+    <meta name="description" content="Free BMI Calculator to calculate Body Mass Index using your height and weight. Get your BMI value and category instantly.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 8px;
+            background: #6c5ce7;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 18px;
+            background: #f0efff;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .info {
+            margin-top: 25px;
+        }
+
+        .info table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .info th,
+        .info td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+            line-height: 2;
+        }
+
+        .links a {
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>BMI Calculator</h1>
+
+        <p class="intro">
+            Calculate your Body Mass Index (BMI) using your height and weight.
+        </p>
+
+        <label for="height">Height (cm)</label>
+        <input
+            type="number"
+            id="height"
+            placeholder="Example: 170"
+            min="1"
+        >
+
+        <label for="weight">Weight (kg)</label>
+        <input
+            type="number"
+            id="weight"
+            placeholder="Example: 65"
+            min="1"
+        >
+
+        <button onclick="calculateBMI()">
+            Calculate BMI
+        </button>
+
+        <div class="result" id="result"></div>
+
+        <div class="info">
+
+            <h2>BMI Categories</h2>
+
+            <table>
+                <tr>
+                    <th>BMI</th>
+                    <th>Category</th>
+                </tr>
+
+                <tr>
+                    <td>Below 18.5</td>
+                    <td>Underweight</td>
+                </tr>
+
+                <tr>
+                    <td>18.5 – 24.9</td>
+                    <td>Normal Weight</td>
+                </tr>
+
+                <tr>
+                    <td>25 – 29.9</td>
+                    <td>Overweight</td>
+                </tr>
+
+                <tr>
+                    <td>30 or above</td>
+                    <td>Obesity</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="links">
+
+        <a href="index.html">Age Calculator</a> |
+        <a href="percentage.html">Percentage Calculator</a> |
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact Us</a> |
+        <a href="privacy.html">Privacy Policy</a>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 Age Calculator. All Rights Reserved.
+</footer>
+
+
+<script>
+
+function calculateBMI() {
+
+    const height = parseFloat(
+        document.getElementById("height").value
+    );
+
+    const weight = parseFloat(
+        document.getElementById("weight").value
+    );
+
+    const result = document.getElementById("result");
+
+    if (
+        isNaN(height) ||
+        isNaN(weight) ||
+        height <= 0 ||
+        weight <= 0
+    ) {
+        result.style.display = "block";
+        result.innerHTML = "Please enter a valid height and weight.";
+        return;
+    }
+
+    const heightInMeters = height / 100;
+
+    const bmi = weight / (heightInMeters * heightInMeters);
+
+    let category = "";
+
+    if (bmi < 18.5) {
+        category = "Underweight";
+    } else if (bmi < 25) {
+        category = "Normal Weight";
+    } else if (bmi < 30) {
+        category = "Overweight";
+    } else {
+        category = "Obesity";
+    }
+
+    result.style.display = "block";
+
+    result.innerHTML =
+        "Your BMI: " + bmi.toFixed(2) +
+        "<br>Category: " + category;
+}
+
+</script>
+
+</body>
+</html>
