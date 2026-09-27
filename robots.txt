@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vivekjigar223101-art.github.io/Agecalculator/sitemap.xml
