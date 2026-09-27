@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
     <url>
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/</loc>
     </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/percentage.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/bmi.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/date.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/emi.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/about.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/contact.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/privacy.html</loc>
+    </url>
+
 </urlset>
