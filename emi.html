@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EMI Calculator - Calculate Loan EMI Online</title>
+
+    <meta name="description" content="Free EMI Calculator to calculate monthly loan EMI, total interest and total payment instantly.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef5ff;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .result p {
+            font-size: 17px;
+            margin: 12px 0;
+        }
+
+        .emi {
+            font-size: 28px !important;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .error {
+            color: #d00;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+            line-height: 2;
+        }
+
+        .links a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>💰 EMI Calculator</h1>
+
+        <p class="intro">
+            Calculate your monthly loan EMI, total interest and total payment instantly.
+        </p>
+
+        <label for="loanAmount">Loan Amount (₹)</label>
+        <input type="number" id="loanAmount" placeholder="Example: 500000">
+
+        <label for="interestRate">Annual Interest Rate (%)</label>
+        <input type="number" id="interestRate" step="0.01" placeholder="Example: 8.5">
+
+        <label for="loanTenure">Loan Tenure (Years)</label>
+        <input type="number" id="loanTenure" step="0.1" placeholder="Example: 5">
+
+        <button onclick="calculateEMI()">Calculate EMI</button>
+
+        <div class="error" id="error"></div>
+
+        <div class="result" id="result">
+
+            <p class="emi">
+                Monthly EMI: ₹<span id="monthlyEMI">0</span>
+            </p>
+
+            <p>
+                Total Interest:
+                <strong>₹<span id="totalInterest">0</span></strong>
+            </p>
+
+            <p>
+                Total Payment:
+                <strong>₹<span id="totalPayment">0</span></strong>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="links">
+
+        <a href="index.html">Age Calculator</a> |
+        <a href="percentage.html">Percentage Calculator</a> |
+        <a href="bmi.html">BMI Calculator</a> |
+        <a href="date.html">Date Calculator</a>
+
+        <br>
+
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy.html">Privacy Policy</a>
+
+    </div>
+
+    <footer>
+        © 2026 Age Calculator. All Rights Reserved.
+    </footer>
+
+</div>
+
+<script>
+
+function calculateEMI() {
+
+    const loanAmount = parseFloat(
+        document.getElementById("loanAmount").value
+    );
+
+    const annualRate = parseFloat(
+        document.getElementById("interestRate").value
+    );
+
+    const years = parseFloat(
+        document.getElementById("loanTenure").value
+    );
+
+    const error = document.getElementById("error");
+    const result = document.getElementById("result");
+
+    error.innerText = "";
+    result.style.display = "none";
+
+    // Validation
+    if (
+        isNaN(loanAmount) ||
+        isNaN(annualRate) ||
+        isNaN(years) ||
+        loanAmount <= 0 ||
+        annualRate < 0 ||
+        years <= 0
+    ) {
+        error.innerText = "Please enter valid loan details.";
+        return;
+    }
+
+    // Monthly interest rate
+    const monthlyRate = annualRate / 12 / 100;
+
+    // Total number of months
+    const months = years * 12;
+
+    let emi;
+
+    // If interest rate is 0
+    if (monthlyRate === 0) {
+
+        emi = loanAmount / months;
+
+    } else {
+
+        emi =
+            loanAmount *
+            monthlyRate *
+            Math.pow(1 + monthlyRate, months) /
+            (Math.pow(1 + monthlyRate, months) - 1);
+    }
+
+    const totalPayment = emi * months;
+
+    const totalInterest = totalPayment - loanAmount;
+
+    // Display result
+    document.getElementById("monthlyEMI").innerText =
+        emi.toLocaleString("en-IN", {
+            maximumFractionDigits: 2
+        });
+
+    document.getElementById("totalInterest").innerText =
+        totalInterest.toLocaleString("en-IN", {
+            maximumFractionDigits: 2
+        });
+
+    document.getElementById("totalPayment").innerText =
+        totalPayment.toLocaleString("en-IN", {
+            maximumFractionDigits: 2
+        });
+
+    result.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
