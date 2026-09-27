@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Date Calculator - Calculate Date Difference & Add Days</title>
+
+    <meta name="description" content="Free Date Calculator to calculate the difference between two dates and add or subtract days from any date.">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 21px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #6c5ce7;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 18px;
+            padding: 15px;
+            background: #f0efff;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 25px;
+            line-height: 2;
+        }
+
+        .links a {
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Date Calculator</h1>
+
+        <p style="text-align:center;">
+            Calculate date differences and add or subtract days easily.
+        </p>
+
+        <h2>1. Date Difference Calculator</h2>
+
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate">
+
+        <button onclick="calculateDifference()">
+            Calculate Difference
+        </button>
+
+        <div class="result" id="differenceResult"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>2. Add or Subtract Days</h2>
+
+        <label for="baseDate">Select Date</label>
+        <input type="date" id="baseDate">
+
+        <label for="daysInput">Number of Days</label>
+        <input
+            type="number"
+            id="daysInput"
+            placeholder="Example: 30"
+        >
+
+        <label for="operation">Choose Operation</label>
+
+        <select id="operation">
+            <option value="add">Add Days</option>
+            <option value="subtract">Subtract Days</option>
+        </select>
+
+        <button onclick="calculateDate()">
+            Calculate Date
+        </button>
+
+        <div class="result" id="dateResult"></div>
+
+    </div>
+
+
+    <div class="links">
+
+        <a href="index.html">Age Calculator</a> |
+        <a href="percentage.html">Percentage Calculator</a> |
+        <a href="bmi.html">BMI Calculator</a> |
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact Us</a> |
+        <a href="privacy.html">Privacy Policy</a>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 Age Calculator. All Rights Reserved.
+</footer>
+
+
+<script>
+
+function calculateDifference() {
+
+    const startValue = document.getElementById("startDate").value;
+    const endValue = document.getElementById("endDate").value;
+
+    const result = document.getElementById("differenceResult");
+
+    if (!startValue || !endValue) {
+        result.style.display = "block";
+        result.innerHTML = "Please select both dates.";
+        return;
+    }
+
+    const start = new Date(startValue + "T00:00:00");
+    const end = new Date(endValue + "T00:00:00");
+
+    if (end < start) {
+        result.style.display = "block";
+        result.innerHTML = "End Date must be after Start Date.";
+        return;
+    }
+
+    const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+    const totalDays = Math.round(
+        (end - start) / millisecondsPerDay
+    );
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+    let days = end.getDate() - start.getDate();
+
+    if (days < 0) {
+        months--;
+
+        const previousMonthDays = new Date(
+            end.getFullYear(),
+            end.getMonth(),
+            0
+        ).getDate();
+
+        days += previousMonthDays;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    result.style.display = "block";
+
+    result.innerHTML =
+        "Difference: " +
+        years + " Years, " +
+        months + " Months, " +
+        days + " Days" +
+        "<br><br>Total Days: " +
+        totalDays;
+}
+
+
+function calculateDate() {
+
+    const baseValue = document.getElementById("baseDate").value;
+    const days = parseInt(
+        document.getElementById("daysInput").value
+    );
+
+    const operation = document.getElementById("operation").value;
+
+    const result = document.getElementById("dateResult");
+
+    if (!baseValue || isNaN(days)) {
+        result.style.display = "block";
+        result.innerHTML = "Please enter a date and number of days.";
+        return;
+    }
+
+    const date = new Date(baseValue + "T00:00:00");
+
+    if (operation === "add") {
+        date.setDate(date.getDate() + days);
+    } else {
+        date.setDate(date.getDate() - days);
+    }
+
+    const formattedDate = date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+    result.style.display = "block";
+
+    result.innerHTML =
+        "Result Date: " + formattedDate;
+}
+
+</script>
+
+</body>
+</html>
