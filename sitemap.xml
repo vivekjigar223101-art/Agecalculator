@@ -66,5 +66,9 @@
     <url>
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/compress-pdf.html</loc>
     </url>
-
+<url>
+  <loc>https://vivekjigar223101-art.github.io/Agecalculator/age-calculator-guide.html</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 </urlset>
