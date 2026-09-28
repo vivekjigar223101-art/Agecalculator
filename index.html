@@ -1,18 +1,32 @@
-ÿ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"> 
-<meta name="google-site-verification" content="dKVyQsQ0P9RkjLWAALct8shhNOWZ7W3DMA7fccTjZus" />
+<meta charset="UTF-8">
+
+<meta name="google-site-verification" content="dKVyQsQ0P9RkjLWAALct8shhNOWZ7W3DMA7fccTjZus">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Age Calculator - Calculate Your Exact Age Online</title>
-<meta name="description" content="Free Age Calculator to calculate your exact age in years, months and days. Find total days, day of birth and your next birthday instantly.">
-<title>Age Calculator - Calculate Your Exact Age</title>
 
-<meta name="description" 
-content="Free online Age Calculator. Calculate your exact age in years, months and days.">
+<title>Free Online Calculators & PDF Tools | Age, BMI, EMI & More</title>
 
-<style> /* Calculator Cards */
+<meta name="description" content="Free online calculators and PDF tools: calculate age, percentage, BMI, dates and EMI, plus JPG to PDF, PDF to JPG, merge, split and compress files.">
+
+<meta name="keywords" content="age calculator, percentage calculator, BMI calculator, date calculator, EMI calculator, PDF tools, JPG to PDF, PDF to JPG, merge PDF, split PDF, compress PDF, compress image">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://vivekjigar223101-art.github.io/Agecalculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Online Calculators & PDF Tools">
+<meta property="og:description" content="Free online calculators and browser-based PDF & file tools.">
+<meta property="og:url" content="https://vivekjigar223101-art.github.io/Agecalculator/">
+<meta property="og:site_name" content="Age Calculator">
+
+
+<style>
+
+/* Calculator Cards */
 
 .calculator-section {
     max-width: 900px;
@@ -59,239 +73,326 @@ content="Free online Age Calculator. Calculate your exact age in years, months a
     color: #666;
     font-size: 14px;
 }
-*{
-    box-sizing:border-box;
+
+* {
+    box-sizing: border-box;
 }
 
-body{ 
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#667eea,#764ba2);
-    min-height:100vh;
-    padding:20px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.container{
-    max-width:650px;
-    margin:30px auto;
+.container {
+    max-width: 650px;
+    margin: 30px auto;
 }
 
-.card{
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-h1{
-    text-align:center;
-    color:#333;
-    margin-top:0;
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
 }
 
-.subtitle{
-    text-align:center;
-    color:#666;
-    margin-bottom:30px;
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
 }
 
-label{
-    display:block;
-    font-weight:bold;
-    margin-bottom:8px;
-    color:#333;
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-input{
-    width:100%;
-    padding:15px;
-    border:2px solid #ddd;
-    border-radius:10px;
-    font-size:18px;
-    margin-bottom:15px;
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 
-button{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:10px;
-    background:#667eea;
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
+button {
+    width: 100%;
+    padding: 15px;
+    border: 0;
+    border-radius: 10px;
+    background: #667eea;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-button:active{
-    transform:scale(0.98);
+button:active {
+    transform: scale(0.98);
 }
 
-.reset{
-    background:#555;
-    margin-top:10px;
+.reset {
+    background: #555;
+    margin-top: 10px;
 }
 
-.result{
-    display:none;
-    margin-top:25px;
+.result {
+    display: none;
+    margin-top: 25px;
 }
 
-.result h2{
-    text-align:center;
-    color:#333;
+.result h2 {
+    text-align: center;
+    color: #333;
 }
 
-.boxes{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:15px;
+.boxes {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-top: 15px;
 }
 
-.box{
-    background:#f2f3ff;
-    padding:18px 5px;
-    border-radius:12px;
-    text-align:center;
+.box {
+    background: #f2f3ff;
+    padding: 18px 5px;
+    border-radius: 12px;
+    text-align: center;
 }
 
-.number{
-    display:block;
-    font-size:28px;
-    font-weight:bold;
-    color:#667eea;
+.number {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: #667eea;
 }
 
-.small{
-    color:#555;
+.small {
+    color: #555;
 }
 
-.info{
-    margin-top:20px;
-    padding:15px;
-    background:#f7f7f7;
-    border-radius:10px;
+.info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 10px;
 }
 
-.error{
-    color:#d00;
-    text-align:center;
-    margin-top:10px;
-    font-weight:bold;
+.error {
+    color: #d00;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-@media(max-width:500px){
-    .card{
-        padding:20px;
+@media(max-width:500px) {
+
+    .card {
+        padding: 20px;
     }
 
-    .boxes{
-        grid-template-columns:1fr 1fr 1fr;
+    .boxes {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
-    .number{
-        font-size:23px;
+    .number {
+        font-size: 23px;
     }
 }
+
 </style>
-</head> 
-<footer style="text-align:center; padding:25px 10px; margin-top:40px; font-size:14px;">
-    <a href="about.html">About Us</a>
-    &nbsp; | &nbsp;
-    <a href="contact.html">Contact Us</a>
-    &nbsp; | &nbsp;
-    <a href="privacy.html">Privacy Policy</a>
 
-    <p style="margin-top:12px;">
-        © 2026 Age Calculator. All Rights Reserved.
-    </p> <a href="about.html">About Us</a>
-&nbsp; | &nbsp;
-<a href="contact.html">Contact Us</a>
-&nbsp; | &nbsp;
-<a href="privacy.html">Privacy Policy</a>
-</footer> <a href="percentage.html">Percentage Calculator</a>
-&nbsp; | &nbsp;
-    <a href="bmi.html">BMI Calculator</a>
-&nbsp; | &nbsp;
-<a href="date.html">Date Calculator</a>
-&nbsp; | &nbsp;
-&nbsp; | &nbsp;
-<a href="emi.html">EMI Calculator</a>    
+
+<!-- SEO Structured Data -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "WebSite",
+      "name": "Age Calculator",
+      "url": "https://vivekjigar223101-art.github.io/Agecalculator/"
+    },
+
+    {
+      "@type": "WebApplication",
+      "name": "Free Online Calculators & PDF Tools",
+      "url": "https://vivekjigar223101-art.github.io/Agecalculator/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+
+        {
+          "@type": "Question",
+          "name": "Is the Age Calculator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The online Age Calculator is free to use."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "What calculators are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The website provides Age, Percentage, BMI, Date and EMI calculators."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "What PDF and file tools are available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Available tools include JPG to PDF, PDF to JPG, Merge PDF, Split PDF, Compress Image and Compress PDF."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "Are the PDF and file tools browser based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The PDF and file tools are designed to work directly in the browser."
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
+</script>
+
+</head>
+
+
 <body>
+
+
+<!-- Homepage Introduction -->
+
+<section class="calculator-section" aria-labelledby="site-intro">
+
+    <h2 id="site-intro">
+        Free Online Calculators & PDF Tools
+    </h2>
+
+    <p>
+        Use our free online calculators and browser-based PDF & file tools
+        for everyday calculations and document tasks. No installation is required.
+    </p>
+
+</section>
+
+
+<!-- Age Calculator -->
 
 <div class="container">
 
-<div class="card">
+    <div class="card">
 
-<h1>Age Calculator</h1>
+        <h1>Age Calculator</h1>
 
-<p class="subtitle">
-Calculate your exact age in Years, Months and Days
-</p>
+        <p class="subtitle">
+            Calculate your exact age in Years, Months and Days
+        </p>
 
-<label for="dob">Enter Your Date of Birth</label>
+        <label for="dob">
+            Enter Your Date of Birth
+        </label>
 
-<input type="date" id="dob">
+        <input type="date" id="dob">
 
-<button type="button" onclick="calculateAge()">
-Calculate My Age
-</button>
+        <button type="button" onclick="calculateAge()">
+            Calculate My Age
+        </button>
 
-<div id="error" class="error"></div>
+        <div id="error" class="error"></div>
 
-<div id="result" class="result">
 
-<h2>Your Exact Age</h2>
+        <div id="result" class="result">
 
-<div class="boxes">
+            <h2>Your Exact Age</h2>
 
-<div class="box">
-<span id="years" class="number">0</span>
-<span class="small">Years</span>
+            <div class="boxes">
+
+                <div class="box">
+                    <span id="years" class="number">0</span>
+                    <span class="small">Years</span>
+                </div>
+
+                <div class="box">
+                    <span id="months" class="number">0</span>
+                    <span class="small">Months</span>
+                </div>
+
+                <div class="box">
+                    <span id="days" class="number">0</span>
+                    <span class="small">Days</span>
+                </div>
+
+            </div>
+
+
+            <div class="info">
+
+                <p>
+                    <strong>Total Days:</strong>
+                    <span id="totalDays">0</span>
+                </p>
+
+                <p>
+                    <strong>Next Birthday:</strong>
+                    <span id="nextBirthday">-</span>
+                </p>
+
+                <p>
+                    <strong>Day of Birth:</strong>
+                    <span id="birthDay">-</span>
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="reset"
+                onclick="resetCalculator()">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="box">
-<span id="months" class="number">0</span>
-<span class="small">Months</span>
-</div>
 
-<div class="box">
-<span id="days" class="number">0</span>
-<span class="small">Days</span>
-</div>
-
-</div>
-
-<div class="info">
-
-<p>
-<strong>Total Days:</strong>
-<span id="totalDays">0</span>
-</p>
-
-<p>
-<strong>Next Birthday:</strong>
-<span id="nextBirthday">-</span>
-</p>
-
-<p>
-<strong>Day of Birth:</strong>
-<span id="birthDay">-</span>
-</p>
-
-</div>
-
-<button type="button" class="reset" onclick="resetCalculator()">
-Reset
-</button>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- Age Calculator JavaScript -->
 
 <script>
 
@@ -306,16 +407,28 @@ function calculateAge(){
     error.innerHTML = "";
 
     if(dobValue === ""){
+
         result.style.display = "none";
-        error.innerHTML = "Please select your date of birth.";
+
+        error.innerHTML =
+            "Please select your date of birth.";
+
         return;
     }
 
+
     const parts = dobValue.split("-");
 
-    const birthYear = parseInt(parts[0]);
-    const birthMonth = parseInt(parts[1]) - 1;
-    const birthDate = parseInt(parts[2]);
+
+    const birthYear =
+        parseInt(parts[0]);
+
+    const birthMonth =
+        parseInt(parts[1]) - 1;
+
+    const birthDate =
+        parseInt(parts[2]);
+
 
     const birth = new Date(
         birthYear,
@@ -323,32 +436,50 @@ function calculateAge(){
         birthDate
     );
 
+
     const today = new Date();
 
+
     if(birth > today){
+
         result.style.display = "none";
-        error.innerHTML = "Date of birth cannot be in the future.";
+
+        error.innerHTML =
+            "Date of birth cannot be in the future.";
+
         return;
     }
 
-    let years = today.getFullYear() - birth.getFullYear();
 
-    let months = today.getMonth() - birth.getMonth();
+    let years =
+        today.getFullYear() -
+        birth.getFullYear();
 
-    let days = today.getDate() - birth.getDate();
+
+    let months =
+        today.getMonth() -
+        birth.getMonth();
+
+
+    let days =
+        today.getDate() -
+        birth.getDate();
+
 
     if(days < 0){
 
         months--;
 
-        const previousMonth = new Date(
-            today.getFullYear(),
-            today.getMonth(),
-            0
-        );
+        const previousMonth =
+            new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                0
+            );
 
         days += previousMonth.getDate();
     }
+
 
     if(months < 0){
 
@@ -357,15 +488,21 @@ function calculateAge(){
         months += 12;
     }
 
+
     const difference =
-        today.getTime() - birth.getTime();
+        today.getTime() -
+        birth.getTime();
+
 
     const totalDays =
         Math.floor(
-            difference / (1000 * 60 * 60 * 24)
+            difference /
+            (1000 * 60 * 60 * 24)
         );
 
+
     const dayNames = [
+
         "Sunday",
         "Monday",
         "Tuesday",
@@ -373,40 +510,57 @@ function calculateAge(){
         "Thursday",
         "Friday",
         "Saturday"
+
     ];
 
-    document.getElementById("years").innerHTML = years;
 
-    document.getElementById("months").innerHTML = months;
+    document.getElementById("years").innerHTML =
+        years;
 
-    document.getElementById("days").innerHTML = days;
+
+    document.getElementById("months").innerHTML =
+        months;
+
+
+    document.getElementById("days").innerHTML =
+        days;
+
 
     document.getElementById("totalDays").innerHTML =
         totalDays.toLocaleString();
 
+
     document.getElementById("birthDay").innerHTML =
         dayNames[birth.getDay()];
 
-    let nextBirthday = new Date(
-        today.getFullYear(),
-        birth.getMonth(),
-        birth.getDate()
-    );
 
-    if(nextBirthday < today){
-
-        nextBirthday = new Date(
-            today.getFullYear() + 1,
+    let nextBirthday =
+        new Date(
+            today.getFullYear(),
             birth.getMonth(),
             birth.getDate()
         );
+
+
+    if(nextBirthday < today){
+
+        nextBirthday =
+            new Date(
+                today.getFullYear() + 1,
+                birth.getMonth(),
+                birth.getDate()
+            );
     }
 
+
     const options = {
+
         day: "2-digit",
         month: "long",
         year: "numeric"
+
     };
+
 
     document.getElementById("nextBirthday").innerHTML =
         nextBirthday.toLocaleDateString(
@@ -414,7 +568,9 @@ function calculateAge(){
             options
         );
 
-    result.style.display = "block";
+
+    result.style.display =
+        "block";
 }
 
 
@@ -422,160 +578,444 @@ function resetCalculator(){
 
     document.getElementById("dob").value = "";
 
-    document.getElementById("result").style.display = "none";
+    document.getElementById("result").style.display =
+        "none";
 
-    document.getElementById("error").innerHTML = "";
+    document.getElementById("error").innerHTML =
+        "";
 }
 
 </script>
+
+
+<!-- Age Calculator SEO Content -->
+
 <section class="calculator-section">
 
-
-    <h2>Age Calculator – Calculate Your Exact Age</h2>
+    <h2>
+        Age Calculator – Calculate Your Exact Age
+    </h2>
 
     <p>
-        Our free Age Calculator helps you calculate your exact age in
-        years, months and days. Simply enter your date of birth and
-        calculate your age instantly.
+        Our free Age Calculator helps you calculate your exact age
+        in years, months and days. Simply enter your date of birth
+        and calculate your age instantly.
     </p>
 
-    <h3>How to Use the Age Calculator?</h3>
+
+    <h3>
+        How to Use the Age Calculator?
+    </h3>
 
     <ol>
-        <li>Enter your date of birth.</li>
-        <li>Select the date on which you want to calculate your age.</li>
-        <li>Click the Calculate button.</li>
-        <li>Your exact age will be displayed instantly.</li>
+
+        <li>
+            Enter your date of birth.
+        </li>
+
+        <li>
+            Click the Calculate button.
+        </li>
+
+        <li>
+            Your exact age will be displayed instantly.
+        </li>
+
     </ol>
 
-    <h3>What Can You Calculate?</h3>
+
+    <h3>
+        What Can You Calculate?
+    </h3>
 
     <ul>
-        <li>Exact age in years, months and days</li>
-        <li>Total number of days</li>
-        <li>Day of birth</li>
-        <li>Next birthday information</li>
+
+        <li>
+            Exact age in years, months and days
+        </li>
+
+        <li>
+            Total number of days
+        </li>
+
+        <li>
+            Day of birth
+        </li>
+
+        <li>
+            Next birthday information
+        </li>
+
     </ul>
 
-    <h3>Frequently Asked Questions</h3>
 
-    <h4>How accurate is this Age Calculator?</h4>
+    <h3>
+        Frequently Asked Questions
+    </h3>
+
+
+    <h4>
+        How accurate is this Age Calculator?
+    </h4>
+
     <p>
-        The calculator uses your entered dates to calculate the difference
-        between the dates and provides the result automatically.
+        The calculator uses your entered dates to calculate
+        the difference between the dates and provides the
+        result automatically.
     </p>
 
-    <h4>Can I calculate my age for a future date?</h4>
+
+    <h4>
+        Does this calculator calculate my exact age?
+    </h4>
+
     <p>
-        Yes. You can select a future date to see how old you will be on
-        that date.
+        Yes. Enter your date of birth to calculate your current
+        age in years, months and days, along with total days,
+        day of birth and next birthday.
     </p>
 
-    <h4>Is this Age Calculator free?</h4>
+
+    <h4>
+        Is this Age Calculator free?
+    </h4>
+
     <p>
         Yes, this online Age Calculator is free to use.
     </p>
 
-</section> <section class="seo-content">
-    <h2>🧮 Free Online Calculators</h2>
-
-    <div class="calculator-grid">
-
-        <a href="index.html" class="calculator-card">
-            <div class="icon">🎂</div>
-            <h3>Age Calculator</h3>
-            <p>Calculate your exact age in years, months and days.</p>
-        </a>
-
-        <a href="percentage.html" class="calculator-card">
-            <div class="icon">📊</div>
-            <h3>Percentage Calculator</h3>
-            <p>Calculate percentages, increase and decrease.</p>
-        </a>
-
-        <a href="bmi.html" class="calculator-card">
-            <div class="icon">⚖️</div>
-            <h3>BMI Calculator</h3>
-            <p>Calculate your Body Mass Index easily.</p>
-        </a>
-
-        <a href="date.html" class="calculator-card">
-            <div class="icon">📅</div>
-            <h3>Date Calculator</h3>
-            <p>Calculate date difference and add or subtract days.</p>
-        </a>
-
-        <a href="emi.html" class="calculator-card">
-            <div class="icon">💰</div>
-            <h3>EMI Calculator</h3>
-            <p>Calculate monthly EMI, interest and total payment.</p>
-        </a>
-
-    </div>
-<!-- PDF & FILE TOOLS SECTION -->
+</section>
 
 
-
-    </div>
-
-</section> <!-- PDF & FILE TOOLS SECTION -->
+<!-- Calculator Tools -->
 
 <section class="seo-content">
 
-    <h2>📁 Free PDF & File Tools</h2>
+    <h2>
+        🧮 Free Online Calculators
+    </h2>
 
-    <p>
-        Use our free online PDF and file tools to convert, merge, split
-        and compress PDF files and images directly from your browser.
-    </p>
 
     <div class="calculator-grid">
 
-        <a href="pdf-tools.html" class="calculator-card">
-            <div class="icon">📁</div>
-            <h3>PDF & File Tools</h3>
-            <p>Open all PDF and file conversion tools in one place.</p>
+
+        <a href="./" class="calculator-card">
+
+            <div class="icon">🎂</div>
+
+            <h3>
+                Age Calculator
+            </h3>
+
+            <p>
+                Calculate your exact age in years,
+                months and days.
+            </p>
+
         </a>
 
-        <a href="jpg-to-pdf.html" class="calculator-card">
-            <div class="icon">🖼️</div>
-            <h3>JPG to PDF</h3>
-            <p>Convert JPG, JPEG and PNG images into PDF.</p>
+
+        <a href="percentage.html" class="calculator-card">
+
+            <div class="icon">📊</div>
+
+            <h3>
+                Percentage Calculator
+            </h3>
+
+            <p>
+                Calculate percentages, increase and decrease.
+            </p>
+
         </a>
 
-        <a href="pdf-to-jpg.html" class="calculator-card">
-            <div class="icon">📄</div>
-            <h3>PDF to JPG</h3>
-            <p>Convert PDF pages into JPG images.</p>
+
+        <a href="bmi.html" class="calculator-card">
+
+            <div class="icon">⚖️</div>
+
+            <h3>
+                BMI Calculator
+            </h3>
+
+            <p>
+                Calculate your Body Mass Index easily.
+            </p>
+
         </a>
 
-        <a href="merge-pdf.html" class="calculator-card">
-            <div class="icon">📑</div>
-            <h3>Merge PDF</h3>
-            <p>Combine multiple PDF files into one document.</p>
+
+        <a href="date.html" class="calculator-card">
+
+            <div class="icon">📅</div>
+
+            <h3>
+                Date Calculator
+            </h3>
+
+            <p>
+                Calculate date difference and add or subtract days.
+            </p>
+
         </a>
 
-        <a href="split-pdf.html" class="calculator-card">
-            <div class="icon">✂️</div>
-            <h3>Split PDF</h3>
-            <p>Extract selected pages from a PDF file.</p>
+
+        <a href="emi.html" class="calculator-card">
+
+            <div class="icon">💰</div>
+
+            <h3>
+                EMI Calculator
+            </h3>
+
+            <p>
+                Calculate monthly EMI, interest and total payment.
+            </p>
+
         </a>
 
-        <a href="compress-image.html" class="calculator-card">
-            <div class="icon">🗜️</div>
-            <h3>Compress Image</h3>
-            <p>Reduce image file size quickly and easily.</p>
-        </a>
-
-        <a href="compress-pdf.html" class="calculator-card">
-            <div class="icon">📦</div>
-            <h3>Compress PDF</h3>
-            <p>Reduce PDF file size for easier sharing.</p>
-        </a>
 
     </div>
 
 </section>
+
+
+<!-- PDF & File Tools -->
+
+<section class="seo-content">
+
+    <h2>
+        📁 Free PDF & File Tools
+    </h2>
+
+    <p>
+        Use our free online PDF and file tools to convert,
+        merge, split and compress PDF files and images
+        directly from your browser.
+    </p>
+
+
+    <div class="calculator-grid">
+
+
+        <a href="pdf-tools.html" class="calculator-card">
+
+            <div class="icon">📁</div>
+
+            <h3>
+                PDF & File Tools
+            </h3>
+
+            <p>
+                Open all PDF and file conversion tools
+                in one place.
+            </p>
+
+        </a>
+
+
+        <a href="jpg-to-pdf.html" class="calculator-card">
+
+            <div class="icon">🖼️</div>
+
+            <h3>
+                JPG to PDF
+            </h3>
+
+            <p>
+                Convert JPG, JPEG and PNG images into PDF.
+            </p>
+
+        </a>
+
+
+        <a href="pdf-to-jpg.html" class="calculator-card">
+
+            <div class="icon">📄</div>
+
+            <h3>
+                PDF to JPG
+            </h3>
+
+            <p>
+                Convert PDF pages into JPG images.
+            </p>
+
+        </a>
+
+
+        <a href="merge-pdf.html" class="calculator-card">
+
+            <div class="icon">📑</div>
+
+            <h3>
+                Merge PDF
+            </h3>
+
+            <p>
+                Combine multiple PDF files into one document.
+            </p>
+
+        </a>
+
+
+        <a href="split-pdf.html" class="calculator-card">
+
+            <div class="icon">✂️</div>
+
+            <h3>
+                Split PDF
+            </h3>
+
+            <p>
+                Extract selected pages from a PDF file.
+            </p>
+
+        </a>
+
+
+        <a href="compress-image.html" class="calculator-card">
+
+            <div class="icon">🗜️</div>
+
+            <h3>
+                Compress Image
+            </h3>
+
+            <p>
+                Reduce image file size quickly and easily.
+            </p>
+
+        </a>
+
+
+        <a href="compress-pdf.html" class="calculator-card">
+
+            <div class="icon">📦</div>
+
+            <h3>
+                Compress PDF
+            </h3>
+
+            <p>
+                Reduce PDF file size for easier sharing.
+            </p>
+
+        </a>
+
+
+    </div>
+
 </section>
+
+
+<!-- Homepage FAQ -->
+
+<section class="calculator-section"
+         aria-labelledby="homepage-faq">
+
+    <h2 id="homepage-faq">
+        Frequently Asked Questions
+    </h2>
+
+
+    <h3>
+        Is the Age Calculator free?
+    </h3>
+
+    <p>
+        Yes. The Age Calculator is free to use online.
+    </p>
+
+
+    <h3>
+        What calculators are available?
+    </h3>
+
+    <p>
+        You can use Age, Percentage, BMI, Date and EMI calculators.
+    </p>
+
+
+    <h3>
+        What PDF and file tools are available?
+    </h3>
+
+    <p>
+        You can convert JPG to PDF, convert PDF to JPG,
+        merge and split PDFs, and compress images or PDFs.
+    </p>
+
+
+    <h3>
+        Do I need to install software?
+    </h3>
+
+    <p>
+        No installation is required for these browser-based tools.
+    </p>
+
+</section>
+
+
+<!-- Footer -->
+
+<footer style="
+    text-align:center;
+    padding:25px 10px;
+    margin-top:40px;
+    font-size:14px;
+    background:#fff;
+    border-radius:12px;
+">
+
+    <a href="about.html">
+        About Us
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="contact.html">
+        Contact Us
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="privacy.html">
+        Privacy Policy
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="percentage.html">
+        Percentage Calculator
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="bmi.html">
+        BMI Calculator
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="date.html">
+        Date Calculator
+    </a>
+
+    &nbsp; | &nbsp;
+
+    <a href="emi.html">
+        EMI Calculator
+    </a>
+
+
+    <p style="margin-top:12px;">
+        © 2026 Age Calculator. All Rights Reserved.
+    </p>
+
+</footer>
+
+
 </body>
 </html>
