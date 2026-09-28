@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Split PDF Online - Free PDF Splitter</title>
+
+<meta name="description"
+content="Split PDF pages online for free. Select specific pages from a PDF and download them as a new PDF.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  padding:25px 10px;
+}
+
+header h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+header p{
+  color:#666;
+  line-height:1.6;
+}
+
+.converter{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.upload-box{
+  border:2px dashed #777;
+  border-radius:15px;
+  padding:40px 20px;
+  text-align:center;
+  cursor:pointer;
+  background:#fafafa;
+}
+
+.upload-box h2{
+  margin-bottom:10px;
+}
+
+.upload-box p{
+  color:#666;
+  margin-bottom:20px;
+}
+
+#fileInput{
+  display:none;
+}
+
+.upload-btn{
+  display:inline-block;
+  border:none;
+  padding:13px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  background:#2563eb;
+  color:white;
+}
+
+.page-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.page-card{
+  background:#f7f7f7;
+  border:2px solid transparent;
+  border-radius:12px;
+  padding:10px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.page-card.selected{
+  border-color:#16a34a;
+  background:#ecfdf5;
+}
+
+.page-card canvas{
+  width:100%;
+  height:190px;
+  object-fit:contain;
+  background:white;
+  border-radius:8px;
+}
+
+.page-card p{
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.select-label{
+  display:block;
+  margin-top:5px;
+  font-size:13px;
+  color:#666;
+}
+
+.extract-btn,
+.clear-btn{
+  border:none;
+  padding:13px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  width:100%;
+}
+
+.extract-btn{
+  background:#16a34a;
+  color:white;
+  margin-top:20px;
+}
+
+.clear-btn{
+  background:#dc2626;
+  color:white;
+  margin-top:10px;
+}
+
+.status{
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.info{
+  margin-top:25px;
+  background:#eef6ff;
+  padding:18px;
+  border-radius:12px;
+  line-height:1.7;
+}
+
+.content{
+  margin-top:35px;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.content h2{
+  margin-bottom:10px;
+}
+
+.content h3{
+  margin-top:20px;
+  margin-bottom:7px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 10px;
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:600px){
+
+header h1{
+  font-size:26px;
+}
+
+.converter{
+  padding:17px;
+}
+
+.upload-box{
+  padding:30px 15px;
+}
+
+.page-card canvas{
+  height:150px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Split PDF Online</h1>
+
+<p>
+Select specific pages from a PDF and create a new PDF for free.
+</p>
+
+</header>
+
+
+<div class="converter">
+
+<label class="upload-box" for="fileInput">
+
+<h2>📄 Select PDF</h2>
+
+<p>
+Choose a PDF file from your device
+</p>
+
+<span class="upload-btn">
+Choose PDF
+</span>
+
+</label>
+
+
+<input
+type="file"
+id="fileInput"
+accept="application/pdf"
+>
+
+
+<div id="pageGrid" class="page-grid"></div>
+
+
+<button id="extractBtn" class="extract-btn">
+
+✂️ Extract Selected Pages
+
+</button>
+
+
+<button id="clearBtn" class="clear-btn">
+
+🗑️ Clear All
+
+</button>
+
+
+<div id="status" class="status"></div>
+
+
+<div class="info">
+
+🔒 <strong>Privacy:</strong>
+
+Your PDF is processed directly in your browser.
+Your file is not uploaded to our server.
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+<h2>Free PDF Splitter</h2>
+
+<p>
+Select the pages you need from a PDF document and create
+a new PDF containing only those pages.
+</p>
+
+
+<h3>How to split a PDF?</h3>
+
+<p>
+1. Select a PDF file.<br>
+2. Wait for the page previews.<br>
+3. Tap the pages you want to keep.<br>
+4. Click "Extract Selected Pages".<br>
+5. Download your new PDF.
+</p>
+
+
+<h3>Is this PDF splitter free?</h3>
+
+<p>
+Yes. This tool is free to use and works directly in your browser.
+</p>
+
+</div>
+
+
+<footer>
+
+© 2026 Your Website Name. All Rights Reserved.
+
+</footer>
+
+</div>
+
+
+<!-- PDF.js -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<!-- PDF-LIB -->
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+const fileInput =
+document.getElementById("fileInput");
+
+const pageGrid =
+document.getElementById("pageGrid");
+
+const extractBtn =
+document.getElementById("extractBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+const status =
+document.getElementById("status");
+
+
+let selectedFile = null;
+
+let selectedPages = new Set();
+
+
+fileInput.addEventListener("change", async function(){
+
+selectedFile = this.files[0];
+
+pageGrid.innerHTML = "";
+
+selectedPages.clear();
+
+status.textContent = "";
+
+if(!selectedFile){
+
+return;
+
+}
+
+if(selectedFile.type !== "application/pdf"){
+
+status.textContent =
+"⚠️ Please select a PDF file.";
+
+return;
+
+}
+
+try{
+
+status.textContent =
+"⏳ Loading PDF pages...";
+
+const arrayBuffer =
+await selectedFile.arrayBuffer();
+
+
+const pdf =
+await pdfjsLib.getDocument({
+data:arrayBuffer
+}).promise;
+
+
+for(
+let pageNumber=1;
+pageNumber<=pdf.numPages;
+pageNumber++
+){
+
+const page =
+await pdf.getPage(pageNumber);
+
+
+const viewport =
+page.getViewport({
+scale:0.7
+});
+
+
+const canvas =
+document.createElement("canvas");
+
+const context =
+canvas.getContext("2d");
+
+
+canvas.width =
+viewport.width;
+
+canvas.height =
+viewport.height;
+
+
+await page.render({
+canvasContext:context,
+viewport:viewport
+}).promise;
+
+
+const card =
+document.createElement("div");
+
+card.className =
+"page-card";
+
+
+const title =
+document.createElement("p");
+
+title.textContent =
+"Page " + pageNumber;
+
+
+const label =
+document.createElement("span");
+
+label.className =
+"select-label";
+
+label.textContent =
+"Tap to select";
+
+
+card.appendChild(canvas);
+
+card.appendChild(title);
+
+card.appendChild(label);
+
+
+card.addEventListener("click",function(){
+
+if(selectedPages.has(pageNumber)){
+
+selectedPages.delete(pageNumber);
+
+card.classList.remove("selected");
+
+label.textContent =
+"Tap to select";
+
+}else{
+
+selectedPages.add(pageNumber);
+
+card.classList.add("selected");
+
+label.textContent =
+"✓ Selected";
+
+}
+
+status.textContent =
+selectedPages.size +
+" page(s) selected.";
+
+});
+
+
+pageGrid.appendChild(card);
+
+}
+
+
+status.textContent =
+pdf.numPages +
+" page(s) loaded. Tap pages to select.";
+
+}catch(error){
+
+console.error(error);
+
+status.textContent =
+"❌ Unable to load this PDF.";
+
+}
+
+});
+
+
+extractBtn.addEventListener("click",async function(){
+
+if(!selectedFile){
+
+status.textContent =
+"⚠️ Please select a PDF first.";
+
+return;
+
+}
+
+
+if(selectedPages.size===0){
+
+status.textContent =
+"⚠️ Please select at least one page.";
+
+return;
+
+}
+
+
+try{
+
+status.textContent =
+"⏳ Creating new PDF...";
+
+
+const arrayBuffer =
+await selectedFile.arrayBuffer();
+
+
+const sourcePdf =
+await PDFLib.PDFDocument.load(
+arrayBuffer
+);
+
+
+const newPdf =
+await PDFLib.PDFDocument.create();
+
+
+const pageNumbers =
+Array.from(selectedPages).sort(
+(a,b)=>a-b
+);
+
+
+for(const pageNumber of pageNumbers){
+
+const copiedPages =
+await newPdf.copyPages(
+sourcePdf,
+[pageNumber-1]
+);
+
+newPdf.addPage(copiedPages[0]);
+
+}
+
+
+const pdfBytes =
+await newPdf.save();
+
+
+const blob =
+new Blob(
+[pdfBytes],
+{
+type:"application/pdf"
+}
+);
+
+
+const url =
+URL.createObjectURL(blob);
+
+
+const link =
+document.createElement("a");
+
+link.href = url;
+
+link.download =
+"split-pages.pdf";
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+URL.revokeObjectURL(url);
+
+
+status.textContent =
+"✅ Selected pages successfully extracted!";
+
+}catch(error){
+
+console.error(error);
+
+status.textContent =
+"❌ Unable to create PDF. Please try again.";
+
+}
+
+});
+
+
+clearBtn.addEventListener("click",function(){
+
+selectedFile = null;
+
+selectedPages.clear();
+
+fileInput.value = "";
+
+pageGrid.innerHTML = "";
+
+status.textContent = "";
+
+});
+
+</script>
+
+</body>
+</html>
