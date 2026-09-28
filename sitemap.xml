@@ -76,5 +76,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     </url>
-    
-</urlset>
+    <url>
+    <loc>https://vivekjigar223101-art.github.io/Agecalculator/bmi-calculator-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    </url>
+    </urlset>
