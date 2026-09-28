@@ -1,15 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Compress PDF Online - Free PDF Compressor</title>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Compress PDF Online Free - PDF Compressor</title>
 
 <meta name="description"
-content="Compress PDF files online for free. Reduce PDF size directly in your browser with adjustable quality.">
+content="Compress PDF online for free. Reduce PDF file size directly in your browser with adjustable quality. No registration and no server upload.">
+
+<meta name="keywords"
+content="compress PDF online, PDF compressor, compress PDF free, reduce PDF size, PDF size reducer, free PDF compressor, shrink PDF">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://vivekjigar223101-art.github.io/Agecalculator/compress-pdf.html">
+
+
+<!-- Open Graph -->
+
+<meta property="og:title"
+content="Compress PDF Online Free - PDF Compressor">
+
+<meta property="og:description"
+content="Free online PDF compressor. Reduce PDF file size directly in your browser with adjustable compression quality.">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
+content="https://vivekjigar223101-art.github.io/Agecalculator/compress-pdf.html">
+
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How can I compress a PDF online?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Select a PDF file, choose the compression quality and click Compress PDF. After processing, download the compressed PDF."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Is this PDF compressor free?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. This PDF compressor is free to use and does not require registration."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Are my PDF files uploaded to a server?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. PDF processing is performed directly in your browser. The selected PDF is not uploaded to the website server."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can I reduce PDF file size before uploading it?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. You can compress a PDF before uploading it to websites, online forms, email services or other platforms."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Will text remain selectable after compression?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"This basic browser-based compressor converts PDF pages into optimized images. As a result, text in the compressed PDF may no longer be selectable or searchable."
+      }
+    }
+  ]
+}
+</script>
+
 
 <style>
+
 *{
 box-sizing:border-box;
 margin:0;
@@ -20,6 +101,7 @@ body{
 font-family:Arial,sans-serif;
 background:#f5f7fb;
 color:#222;
+line-height:1.6;
 }
 
 .container{
@@ -36,6 +118,7 @@ padding:25px 10px;
 header h1{
 font-size:32px;
 margin-bottom:10px;
+line-height:1.3;
 }
 
 header p{
@@ -51,6 +134,7 @@ box-shadow:0 5px 25px rgba(0,0,0,.08);
 }
 
 .upload-box{
+display:block;
 border:2px dashed #777;
 border-radius:15px;
 padding:40px 20px;
@@ -194,6 +278,35 @@ margin-top:20px;
 margin-bottom:7px;
 }
 
+.content ol,
+.content ul{
+padding-left:22px;
+margin-top:10px;
+}
+
+.links{
+margin-top:25px;
+background:#fff;
+padding:25px;
+border-radius:15px;
+}
+
+.links h2{
+margin-bottom:15px;
+}
+
+.links a{
+display:block;
+padding:9px 0;
+color:#2563eb;
+text-decoration:none;
+font-weight:bold;
+}
+
+.links a:hover{
+text-decoration:underline;
+}
+
 footer{
 text-align:center;
 padding:30px 10px;
@@ -202,6 +315,14 @@ font-size:14px;
 }
 
 @media(max-width:600px){
+
+.container{
+padding:12px;
+}
+
+header{
+padding:20px 8px;
+}
 
 header h1{
 font-size:26px;
@@ -219,9 +340,17 @@ padding:30px 15px;
 grid-template-columns:1fr;
 }
 
+.content,
+.links{
+padding:18px;
 }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
@@ -232,7 +361,8 @@ grid-template-columns:1fr;
 <h1>Compress PDF Online</h1>
 
 <p>
-Reduce PDF file size online for free.
+Free online PDF compressor to reduce PDF file size
+directly in your browser.
 </p>
 
 </header>
@@ -253,6 +383,7 @@ Choose PDF
 </span>
 
 </label>
+
 
 <input
 type="file"
@@ -294,21 +425,29 @@ class="compress-btn">
 </button>
 
 
-<div id="stats" class="stats" style="display:none;">
+<div
+id="stats"
+class="stats"
+style="display:none;">
 
 <div class="stat">
 
 Original Size
 
-<strong id="originalSize">-</strong>
+<strong id="originalSize">
+-
+</strong>
 
 </div>
+
 
 <div class="stat">
 
 Compressed Size
 
-<strong id="compressedSize">-</strong>
+<strong id="compressedSize">
+-
+</strong>
 
 </div>
 
@@ -350,50 +489,209 @@ It is not uploaded to our server.
 <div class="warning">
 
 ⚠️ <strong>Important:</strong>
-This basic free compressor converts PDF pages into optimized
-images. Text in the compressed PDF may no longer be selectable
-or searchable.
+
+This basic free compressor converts PDF pages into
+optimized images. Text in the compressed PDF may no
+longer be selectable or searchable.
 
 </div>
 
 </div>
 
+
+<!-- SEO CONTENT -->
 
 <div class="content">
 
-<h2>Free PDF Compressor</h2>
+<h2>Free PDF Compressor Online</h2>
 
 <p>
-Reduce the size of PDF documents directly in your browser.
-Choose a lower quality for a smaller PDF or a higher quality
-for better image clarity.
+Use this free PDF compressor to reduce the file size of
+PDF documents directly in your browser. Choose a suitable
+compression quality and download the processed PDF.
 </p>
 
 
-<h3>How to compress a PDF?</h3>
+<h3>How to Compress a PDF Online?</h3>
+
+<ol>
+
+<li>Select your PDF file.</li>
+
+<li>Choose the desired compression quality.</li>
+
+<li>Click the <strong>Compress PDF</strong> button.</li>
+
+<li>Wait while the PDF pages are processed.</li>
+
+<li>Check the original and compressed file sizes.</li>
+
+<li>Download your compressed PDF.</li>
+
+</ol>
+
+
+<h3>Why Compress a PDF?</h3>
+
+<ul>
+
+<li>Reduce PDF file size.</li>
+
+<li>Make large PDF files easier to upload.</li>
+
+<li>Prepare PDFs for online forms.</li>
+
+<li>Reduce file size before sharing.</li>
+
+<li>Save storage space.</li>
+
+</ul>
+
+
+<h3>Is This PDF Compressor Free?</h3>
 
 <p>
-1. Select your PDF.<br>
-2. Choose the compression quality.<br>
-3. Click "Compress PDF".<br>
-4. Wait for processing.<br>
-5. Download the compressed PDF.
+Yes. This online PDF compressor is free to use and does
+not require registration or account creation.
+</p>
+
+
+<h3>Are My PDF Files Safe?</h3>
+
+<p>
+The PDF is processed directly in your browser. The selected
+file is not uploaded to our website server, which helps
+keep your documents private.
+</p>
+
+
+<h3>What Does PDF Compression Quality Mean?</h3>
+
+<p>
+The quality slider controls the image quality used while
+rebuilding the PDF. A lower quality can produce a smaller
+file, while a higher quality can preserve more visual
+detail but may result in a larger file.
+</p>
+
+
+<h3>Important PDF Compression Limitation</h3>
+
+<p>
+This browser-based compressor converts PDF pages into
+optimized JPEG images. Therefore, text may no longer be
+selectable or searchable in the resulting PDF. For
+documents where searchable text is important, keep the
+original PDF.
+</p>
+
+</div>
+
+
+<!-- FAQ -->
+
+<div class="content">
+
+<h2>Frequently Asked Questions</h2>
+
+
+<h3>How can I compress a PDF online?</h3>
+
+<p>
+Select a PDF, choose the compression quality and click
+<strong>Compress PDF</strong>. After processing, download
+the compressed file.
 </p>
 
 
 <h3>Is this PDF compressor free?</h3>
 
 <p>
-Yes. This tool is free and does not require registration.
-Your PDF is processed locally in your browser.
+Yes. It is free to use and does not require registration.
 </p>
+
+
+<h3>Are my PDF files uploaded to a server?</h3>
+
+<p>
+No. PDF processing takes place directly in your browser.
+The selected PDF is not uploaded to our server.
+</p>
+
+
+<h3>Can I reduce PDF size before uploading it?</h3>
+
+<p>
+Yes. Compressing a PDF can help reduce its file size
+before uploading it to websites, online forms or other
+platforms.
+</p>
+
+
+<h3>Will text remain selectable after compression?</h3>
+
+<p>
+Not necessarily. This basic compressor converts PDF pages
+into images, so text may no longer be selectable or
+searchable.
+</p>
+
+</div>
+
+
+<!-- INTERNAL LINKS -->
+
+<div class="links">
+
+<h2>📁 PDF & File Tools</h2>
+
+
+<a href="pdf-tools.html">
+📄 PDF & File Tools Hub
+</a>
+
+
+<a href="jpg-to-pdf.html">
+🖼️ JPG to PDF Converter
+</a>
+
+
+<a href="pdf-to-jpg.html">
+📄 PDF to JPG Converter
+</a>
+
+
+<a href="merge-pdf.html">
+📑 Merge PDF Files
+</a>
+
+
+<a href="split-pdf.html">
+✂️ Split PDF
+</a>
+
+
+<a href="compress-image.html">
+🖼️ Compress Image
+</a>
+
+
+<a href="compress-pdf.html">
+🗜️ Compress PDF
+</a>
+
+
+<a href="index.html">
+🧮 Calculator Hub
+</a>
 
 </div>
 
 
 <footer>
 
-© 2026 Your Website Name. All Rights Reserved.
+© 2026 Age Calculator & PDF Tools.
+All Rights Reserved.
 
 </footer>
 
@@ -402,12 +700,16 @@ Your PDF is processed locally in your browser.
 
 <!-- PDF.js -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js">
+</script>
 
 
 <!-- PDF-LIB -->
 
-<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script
+src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js">
+</script>
 
 
 <script>
@@ -450,7 +752,9 @@ document.getElementById("status");
 let selectedFile = null;
 
 
-quality.addEventListener("input",function(){
+quality.addEventListener(
+"input",
+function(){
 
 qualityValue.textContent =
 this.value;
@@ -458,7 +762,9 @@ this.value;
 });
 
 
-fileInput.addEventListener("change",function(){
+fileInput.addEventListener(
+"change",
+function(){
 
 selectedFile =
 this.files[0];
@@ -477,6 +783,7 @@ return;
 
 }
 
+
 if(selectedFile.type !== "application/pdf"){
 
 status.textContent =
@@ -487,6 +794,7 @@ selectedFile = null;
 return;
 
 }
+
 
 status.textContent =
 "✅ PDF selected: " +
@@ -508,13 +816,16 @@ return;
 
 }
 
+
 try{
 
 status.textContent =
 "⏳ Loading PDF...";
 
+
 const arrayBuffer =
 await selectedFile.arrayBuffer();
+
 
 const pdf =
 await pdfjsLib.getDocument({
@@ -540,12 +851,14 @@ status.textContent =
 "⏳ Compressing page "
 + pageNumber +
 " of "
-+ pdf.numPages
-+ "...";
++ pdf.numPages +
+"...";
 
 
 const page =
-await pdf.getPage(pageNumber);
+await pdf.getPage(
+pageNumber
+);
 
 
 const viewport =
@@ -555,17 +868,26 @@ scale:1.2
 
 
 const canvas =
-document.createElement("canvas");
+document.createElement(
+"canvas"
+);
+
 
 const context =
-canvas.getContext("2d");
+canvas.getContext(
+"2d"
+);
 
 
 canvas.width =
-Math.floor(viewport.width);
+Math.floor(
+viewport.width
+);
 
 canvas.height =
-Math.floor(viewport.height);
+Math.floor(
+viewport.height
+);
 
 
 await page.render({
@@ -632,7 +954,9 @@ type:"application/pdf"
 
 
 const url =
-URL.createObjectURL(blob);
+URL.createObjectURL(
+blob
+);
 
 
 downloadBtn.href =
@@ -663,13 +987,18 @@ stats.style.display =
 
 const reduction =
 (
-(1 - blob.size /
-selectedFile.size)
+(1 -
+blob.size /
+selectedFile.size
+)
 * 100
 ).toFixed(1);
 
 
-if(blob.size < selectedFile.size){
+if(
+blob.size <
+selectedFile.size
+){
 
 status.textContent =
 "✅ PDF compressed successfully! "
@@ -729,6 +1058,7 @@ return "0 Bytes";
 
 }
 
+
 const sizes = [
 "Bytes",
 "KB",
@@ -736,18 +1066,23 @@ const sizes = [
 "GB"
 ];
 
+
 const i =
 Math.floor(
 Math.log(bytes) /
 Math.log(1024)
 );
 
+
 return (
 
 parseFloat(
 (
 bytes /
-Math.pow(1024,i)
+Math.pow(
+1024,
+i
+)
 ).toFixed(2)
 )
 
