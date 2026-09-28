@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Merge PDF Online - Free PDF Merger</title>
+
+<meta name="description"
+content="Merge multiple PDF files into one PDF online for free. Fast, secure and mobile friendly PDF merger.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  padding:25px 10px;
+}
+
+header h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+header p{
+  color:#666;
+  line-height:1.6;
+}
+
+.converter{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.upload-box{
+  border:2px dashed #777;
+  border-radius:15px;
+  padding:40px 20px;
+  text-align:center;
+  cursor:pointer;
+  background:#fafafa;
+}
+
+.upload-box h2{
+  margin-bottom:10px;
+}
+
+.upload-box p{
+  color:#666;
+  margin-bottom:20px;
+}
+
+#fileInput{
+  display:none;
+}
+
+.upload-btn,
+.merge-btn,
+.clear-btn{
+  display:inline-block;
+  border:none;
+  padding:13px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.upload-btn{
+  background:#2563eb;
+  color:white;
+}
+
+.merge-btn{
+  background:#16a34a;
+  color:white;
+  width:100%;
+  margin-top:20px;
+}
+
+.clear-btn{
+  background:#dc2626;
+  color:white;
+  width:100%;
+  margin-top:10px;
+}
+
+.file-list{
+  margin-top:25px;
+}
+
+.file-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:#f7f7f7;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.file-name{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  flex:1;
+}
+
+.remove-btn{
+  border:none;
+  background:#dc2626;
+  color:white;
+  padding:7px 10px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.status{
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.info{
+  margin-top:25px;
+  background:#eef6ff;
+  padding:18px;
+  border-radius:12px;
+  line-height:1.7;
+}
+
+.content{
+  margin-top:35px;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.content h2{
+  margin-bottom:10px;
+}
+
+.content h3{
+  margin-top:20px;
+  margin-bottom:7px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 10px;
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:26px;
+  }
+
+  .converter{
+    padding:17px;
+  }
+
+  .upload-box{
+    padding:30px 15px;
+  }
+
+  .file-item{
+    font-size:14px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Merge PDF Online</h1>
+
+<p>
+Combine multiple PDF files into one PDF document for free.
+</p>
+
+</header>
+
+
+<div class="converter">
+
+<label class="upload-box" for="fileInput">
+
+<h2>📄 Select PDF Files</h2>
+
+<p>
+Choose two or more PDF files
+</p>
+
+<span class="upload-btn">
+Choose PDF Files
+</span>
+
+</label>
+
+
+<input
+type="file"
+id="fileInput"
+accept="application/pdf"
+multiple
+>
+
+
+<div id="fileList" class="file-list"></div>
+
+
+<button id="mergeBtn" class="merge-btn">
+
+🔗 Merge PDF Files
+
+</button>
+
+
+<button id="clearBtn" class="clear-btn">
+
+🗑️ Clear All
+
+</button>
+
+
+<div id="status" class="status"></div>
+
+
+<div class="info">
+
+🔒 <strong>Privacy:</strong>
+
+Your PDF files are processed directly in your browser.
+They are not uploaded to our server.
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+<h2>Free PDF Merger</h2>
+
+<p>
+Merge multiple PDF documents into one PDF file quickly and easily.
+This tool works on mobile phones, tablets and computers.
+</p>
+
+
+<h3>How to merge PDF files?</h3>
+
+<p>
+1. Click "Choose PDF Files".<br>
+2. Select two or more PDF files.<br>
+3. Check the selected files.<br>
+4. Click "Merge PDF Files".<br>
+5. Your merged PDF will be downloaded.
+</p>
+
+
+<h3>Is this PDF merger free?</h3>
+
+<p>
+Yes. This PDF merger is free to use and does not require
+software installation or registration.
+</p>
+
+</div>
+
+
+<footer>
+
+© 2026 Your Website Name. All Rights Reserved.
+
+</footer>
+
+</div>
+
+
+<!-- PDF-LIB -->
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+
+<script>
+
+const fileInput =
+document.getElementById("fileInput");
+
+const fileList =
+document.getElementById("fileList");
+
+const mergeBtn =
+document.getElementById("mergeBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+const status =
+document.getElementById("status");
+
+
+let selectedFiles = [];
+
+
+fileInput.addEventListener("change", function(){
+
+const newFiles =
+Array.from(this.files);
+
+selectedFiles =
+selectedFiles.concat(newFiles);
+
+renderFileList();
+
+fileInput.value = "";
+
+});
+
+
+function renderFileList(){
+
+fileList.innerHTML = "";
+
+if(selectedFiles.length === 0){
+
+status.textContent = "";
+
+return;
+
+}
+
+
+selectedFiles.forEach((file,index)=>{
+
+const item =
+document.createElement("div");
+
+item.className =
+"file-item";
+
+
+const name =
+document.createElement("div");
+
+name.className =
+"file-name";
+
+name.textContent =
+(index + 1) + ". " + file.name;
+
+
+const remove =
+document.createElement("button");
+
+remove.className =
+"remove-btn";
+
+remove.textContent =
+"Remove";
+
+
+remove.onclick = function(){
+
+selectedFiles.splice(index,1);
+
+renderFileList();
+
+};
+
+
+item.appendChild(name);
+
+item.appendChild(remove);
+
+fileList.appendChild(item);
+
+});
+
+
+status.textContent =
+selectedFiles.length +
+" PDF file(s) selected.";
+
+}
+
+
+mergeBtn.addEventListener("click", async function(){
+
+if(selectedFiles.length < 2){
+
+status.textContent =
+"⚠️ Please select at least 2 PDF files.";
+
+return;
+
+}
+
+
+try{
+
+status.textContent =
+"⏳ Merging PDF files...";
+
+
+const mergedPdf =
+await PDFLib.PDFDocument.create();
+
+
+for(const file of selectedFiles){
+
+const arrayBuffer =
+await file.arrayBuffer();
+
+
+const pdf =
+await PDFLib.PDFDocument.load(
+arrayBuffer
+);
+
+
+const pages =
+await mergedPdf.copyPages(
+pdf,
+pdf.getPageIndices()
+);
+
+
+pages.forEach(page=>{
+
+mergedPdf.addPage(page);
+
+});
+
+}
+
+
+const mergedPdfBytes =
+await mergedPdf.save();
+
+
+const blob =
+new Blob(
+[mergedPdfBytes],
+{
+type:"application/pdf"
+}
+);
+
+
+const url =
+URL.createObjectURL(blob);
+
+
+const link =
+document.createElement("a");
+
+link.href = url;
+
+link.download =
+"merged-document.pdf";
+
+document.body.appendChild(link);
+
+link.click();
+
+link.remove();
+
+URL.revokeObjectURL(url);
+
+
+status.textContent =
+"✅ PDF files successfully merged!";
+
+
+}catch(error){
+
+console.error(error);
+
+status.textContent =
+"❌ Unable to merge the PDF files. Please try again.";
+
+}
+
+});
+
+
+clearBtn.addEventListener("click",function(){
+
+selectedFiles = [];
+
+fileInput.value = "";
+
+fileList.innerHTML = "";
+
+status.textContent = "";
+
+});
+
+</script>
+
+</body>
+</html>
