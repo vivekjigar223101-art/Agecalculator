@@ -2,10 +2,12 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- Home -->
     <url>
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/</loc>
     </url>
 
+    <!-- Calculators -->
     <url>
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/percentage.html</loc>
     </url>
@@ -22,6 +24,7 @@
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/emi.html</loc>
     </url>
 
+    <!-- Important Pages -->
     <url>
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/about.html</loc>
     </url>
@@ -34,6 +37,34 @@
         <loc>https://vivekjigar223101-art.github.io/Agecalculator/privacy.html</loc>
     </url>
 
+    <!-- PDF & File Tools Hub -->
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/pdf-tools.html</loc>
+    </url>
+
+    <!-- PDF & File Tools -->
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/jpg-to-pdf.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/pdf-to-jpg.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/merge-pdf.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/split-pdf.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/compress-image.html</loc>
+    </url>
+
+    <url>
+        <loc>https://vivekjigar223101-art.github.io/Agecalculator/compress-pdf.html</loc>
+    </url>
+
 </urlset>
-
-
