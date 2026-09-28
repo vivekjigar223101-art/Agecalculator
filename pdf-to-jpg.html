@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PDF to JPG Converter - Free Online</title>
+
+<meta name="description"
+content="Convert PDF pages to JPG images online for free. Fast, secure and mobile friendly PDF to JPG converter.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  padding:25px 10px;
+}
+
+header h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+header p{
+  color:#666;
+  line-height:1.6;
+}
+
+.converter{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.upload-box{
+  border:2px dashed #777;
+  border-radius:15px;
+  padding:40px 20px;
+  text-align:center;
+  cursor:pointer;
+  background:#fafafa;
+}
+
+.upload-box h2{
+  margin-bottom:10px;
+}
+
+.upload-box p{
+  color:#666;
+  margin-bottom:20px;
+}
+
+#fileInput{
+  display:none;
+}
+
+.upload-btn,
+.convert-btn,
+.clear-btn{
+  display:inline-block;
+  border:none;
+  padding:13px 22px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.upload-btn{
+  background:#2563eb;
+  color:white;
+}
+
+.convert-btn{
+  background:#16a34a;
+  color:white;
+  width:100%;
+  margin-top:20px;
+}
+
+.clear-btn{
+  background:#dc2626;
+  color:white;
+  width:100%;
+  margin-top:10px;
+}
+
+#preview{
+  margin-top:25px;
+}
+
+.page-card{
+  background:#f8f8f8;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+.page-card img{
+  width:100%;
+  max-height:500px;
+  object-fit:contain;
+  background:white;
+  border-radius:8px;
+}
+
+.page-card p{
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.status{
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.info{
+  margin-top:25px;
+  background:#eef6ff;
+  padding:18px;
+  border-radius:12px;
+  line-height:1.7;
+}
+
+.content{
+  margin-top:35px;
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.content h2{
+  margin-bottom:10px;
+}
+
+.content h3{
+  margin-top:20px;
+  margin-bottom:7px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 10px;
+  color:#777;
+  font-size:14px;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:26px;
+  }
+
+  .converter{
+    padding:17px;
+  }
+
+  .upload-box{
+    padding:30px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>PDF to JPG Converter</h1>
+
+<p>
+Convert PDF pages into JPG images online for free.
+</p>
+
+</header>
+
+
+<div class="converter">
+
+<label class="upload-box" for="fileInput">
+
+<h2>📄 Select PDF</h2>
+
+<p>
+Choose a PDF file from your device
+</p>
+
+<span class="upload-btn">
+Choose PDF
+</span>
+
+</label>
+
+<input
+type="file"
+id="fileInput"
+accept="application/pdf"
+>
+
+<div id="preview"></div>
+
+<button id="convertBtn" class="convert-btn">
+🖼️ Convert PDF to JPG
+</button>
+
+<button id="clearBtn" class="clear-btn">
+🗑️ Clear
+</button>
+
+<div id="status" class="status"></div>
+
+
+<div class="info">
+
+🔒 <strong>Privacy:</strong>
+
+Your PDF is processed directly in your browser.
+The file is not uploaded to our server.
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+<h2>Free PDF to JPG Converter</h2>
+
+<p>
+Convert PDF pages into JPG images quickly and easily.
+This online tool works on mobile phones, tablets and computers.
+</p>
+
+<h3>How to convert PDF to JPG?</h3>
+
+<p>
+1. Select a PDF file.<br>
+2. Click "Convert PDF to JPG".<br>
+3. Wait while the pages are processed.<br>
+4. Download the JPG images.
+</p>
+
+<h3>Is this tool free?</h3>
+
+<p>
+Yes. This PDF to JPG converter is free to use.
+No software installation is required.
+</p>
+
+</div>
+
+
+<footer>
+
+© 2026 Your Website Name. All Rights Reserved.
+
+</footer>
+
+</div>
+
+
+<!-- PDF.js -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<script>
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+
+const fileInput =
+document.getElementById("fileInput");
+
+const preview =
+document.getElementById("preview");
+
+const convertBtn =
+document.getElementById("convertBtn");
+
+const clearBtn =
+document.getElementById("clearBtn");
+
+const status =
+document.getElementById("status");
+
+
+let selectedFile = null;
+
+
+fileInput.addEventListener("change", function(){
+
+selectedFile = this.files[0];
+
+preview.innerHTML = "";
+
+status.textContent = "";
+
+if(!selectedFile){
+
+return;
+
+}
+
+if(selectedFile.type !== "application/pdf"){
+
+status.textContent =
+"⚠️ Please select a PDF file.";
+
+return;
+
+}
+
+status.textContent =
+"✅ PDF selected: " + selectedFile.name;
+
+});
+
+
+convertBtn.addEventListener("click", async function(){
+
+if(!selectedFile){
+
+status.textContent =
+"⚠️ Please select a PDF file first.";
+
+return;
+
+}
+
+try{
+
+status.textContent =
+"⏳ Converting PDF pages...";
+
+const arrayBuffer =
+await selectedFile.arrayBuffer();
+
+const pdf =
+await pdfjsLib.getDocument({
+data: arrayBuffer
+}).promise;
+
+
+preview.innerHTML = "";
+
+for(let pageNumber = 1;
+pageNumber <= pdf.numPages;
+pageNumber++){
+
+const page =
+await pdf.getPage(pageNumber);
+
+
+const scale = 1.5;
+
+const viewport =
+page.getViewport({
+scale: scale
+});
+
+
+const canvas =
+document.createElement("canvas");
+
+const context =
+canvas.getContext("2d");
+
+
+canvas.width =
+viewport.width;
+
+canvas.height =
+viewport.height;
+
+
+await page.render({
+canvasContext: context,
+viewport: viewport
+}).promise;
+
+
+const jpgData =
+canvas.toDataURL(
+"image/jpeg",
+0.90
+);
+
+
+const card =
+document.createElement("div");
+
+card.className =
+"page-card";
+
+
+const image =
+document.createElement("img");
+
+image.src = jpgData;
+
+image.alt =
+"PDF page " + pageNumber;
+
+
+const title =
+document.createElement("p");
+
+title.textContent =
+"Page " + pageNumber;
+
+
+const download =
+document.createElement("a");
+
+download.href =
+jpgData;
+
+download.download =
+"page-" + pageNumber + ".jpg";
+
+download.textContent =
+"⬇️ Download JPG";
+
+download.style.display =
+"inline-block";
+
+download.style.marginTop =
+"10px";
+
+download.style.padding =
+"10px 15px";
+
+download.style.background =
+"#2563eb";
+
+download.style.color =
+"white";
+
+download.style.textDecoration =
+"none";
+
+download.style.borderRadius =
+"8px";
+
+
+card.appendChild(image);
+
+card.appendChild(title);
+
+card.appendChild(download);
+
+preview.appendChild(card);
+
+}
+
+status.textContent =
+"✅ PDF successfully converted!";
+
+}catch(error){
+
+console.error(error);
+
+status.textContent =
+"❌ Something went wrong. Please try another PDF.";
+
+}
+
+});
+
+
+clearBtn.addEventListener("click", function(){
+
+selectedFile = null;
+
+fileInput.value = "";
+
+preview.innerHTML = "";
+
+status.textContent = "";
+
+});
+
+</script>
+
+</body>
+</html>
